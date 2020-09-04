@@ -17,7 +17,7 @@
                     "name": "Look",
                     "type": "Value",
                     "id": "0a298387-80a0-47b1-9ddf-d064e09ee343",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 },
@@ -142,61 +142,6 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Mouse",
-                    "id": "fc4a87fe-c5d9-44f4-8f08-86284fb7f304",
-                    "path": "2DVector(mode=2)",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Look",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "ea66da61-95a8-43a2-aa17-a831a76b2261",
-                    "path": "<Mouse>/position/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard and Mouse",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "38a61689-49e8-4ef8-870d-fa2b1f10ef9c",
-                    "path": "<Mouse>/position/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard and Mouse",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "a76b7350-01af-4b66-9840-778af5f20ff0",
-                    "path": "<Mouse>/position/x",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard and Mouse",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "9265f071-fd91-43a7-9624-c3dc5538e9e5",
-                    "path": "<Mouse>/position/x",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard and Mouse",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "RightStick",
                     "id": "25834d4d-fbaa-4bc9-a713-4ac6875b4f13",
                     "path": "2DVector(mode=2)",
@@ -250,6 +195,17 @@
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "aa04165f-cc0a-425f-a80f-4b17298f75e5",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 },
                 {
                     "name": "",
