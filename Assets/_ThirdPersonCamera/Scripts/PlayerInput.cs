@@ -1,37 +1,46 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 
-public class PlayerInput : MonoBehaviour
+namespace BobsAdventure
 {
-    public CharacterController CharacterController = null;
-    
-    private InputMaster Controls = null;
-    
-    private void Awake()
+    public class PlayerInput : MonoBehaviour
     {
-        Controls = new InputMaster();
-
-        if (CharacterController == null)
+        public CharacterController CharacterController = null;
+        public OverShoulderCamera PlayerCamera = null;
+    
+        private InputMaster Controls = null;
+    
+        private void Awake()
         {
-            CharacterController = GetComponent<CharacterController>();
+            Controls = new InputMaster();
+
+            if (CharacterController == null)
+            {
+                CharacterController = GetComponent<CharacterController>();
+            }
+
+            PlayerCamera = GameManager.PlayerCamera.GetComponent<OverShoulderCamera>();
+            Controls.Player.Jump.performed += context => CharacterController.Jump();
         }
 
-        Controls.Player.Jump.performed += context => CharacterController.Jump();
-    }
+        private void FixedUpdate()
+        {
+            CharacterController.Move(Controls.Player.Movement.ReadValue<Vector2>());
+        }
 
-    private void FixedUpdate()
-    {
-        CharacterController.Move(Controls.Player.Movement.ReadValue<Vector2>());
-        CharacterController.Aim(Controls.Player.Look.ReadValue<Vector2>());
-    }
+        private void LateUpdate()
+        {
+            PlayerCamera.Aim(Controls.Player.Look.ReadValue<Vector2>());
+            PlayerCamera.Zoom(Controls.Player.Zoom.ReadValue<float>());
+        }
 
-    private void OnEnable()
-    {
-        Controls.Enable();
-    }
+        private void OnEnable()
+        {
+            Controls.Enable();
+        }
 
-    private void OnDisable()
-    {
-        Controls.Disable();
+        private void OnDisable()
+        {
+            Controls.Disable();
+        }
     }
 }
